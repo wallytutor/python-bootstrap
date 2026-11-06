@@ -1,0 +1,9 @@
+# Generated files
+.python-version
+pyproject.toml
+uv.lock
+jupyter.ps1
+
+/.venv/
+/cache/
+/uv/
