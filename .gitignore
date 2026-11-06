@@ -4,6 +4,8 @@ pyproject.toml
 uv.lock
 jupyter.ps1
 
+/.ipython/
+/.jupyter/
 /.venv/
 /cache/
 /uv/

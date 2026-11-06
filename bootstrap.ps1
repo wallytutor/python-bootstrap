@@ -1,5 +1,5 @@
 # ============================================================================
-# Script .....: install.ps1
+# Script .....: bootstrap.ps1
 # Application : Portable installation of uv environment on Windows x64
 # Author .....: Walter Dal'Maz Silva
 #
@@ -28,8 +28,8 @@ dependencies = [
     "matplotlib>=3.11.2",
     "numpy>=2.5.4",
     "pandas>=3.1.1",
-    "scikit-image>=0.26.0",
-    "scikit-learn>=1.9.1",
+    # "scikit-image>=0.26.0",
+    # "scikit-learn>=1.9.1",
     "scipy>=1.18.1",
 ]
 
@@ -43,7 +43,13 @@ dev = [
 "3.13" `
     | Out-File -FilePath "$PSScriptRoot/.python-version" -Encoding utf8
 
-"./uv/uv run jupyter lab" `
+@"
+`$env:IPYTHONDIR`       = "`$PSScriptRoot`\.ipython"
+`$env:JUPYTER_DATA_DIR` = "`$PSScriptRoot`\.jupyter"
+`$env:JUPYTER_PATH`     = "`$PSScriptRoot`\.jupyter"
+
+./uv/uv run jupyter lab
+"@ `
     | Out-File -FilePath "$PSScriptRoot/jupyter.ps1" -Encoding utf8
 
 function Install-Uv {
@@ -85,4 +91,4 @@ function Install-Uv {
 
 Install-Uv
 
-& "./uv/uv sync --system-certs"
+& ./uv/uv.exe sync --system-certs
