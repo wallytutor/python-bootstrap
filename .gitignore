@@ -4,8 +4,12 @@ pyproject.toml
 uv.lock
 jupyter.ps1
 
+# Generated folders
 /.ipython/
 /.jupyter/
 /.venv/
 /cache/
 /uv/
+
+# Checkpoints
+.ipynb_checkpoints/
