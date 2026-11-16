@@ -13,3 +13,6 @@ jupyter.ps1
 
 # Checkpoints
 .ipynb_checkpoints/
+
+# Converted notebooks
+/notebooks/*.pdf
